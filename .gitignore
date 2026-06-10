@@ -1,0 +1,22 @@
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.gradle/
+local.properties
+.DS_Store
+
+# Build outputs
+build/
+app/build/
+
+# Keystore (¡importante! no subir claves)
+*.jks
+*.keystore
+
+# NDK
+.externalNativeBuild/
+.cxx/
+
+# Archivos de usuario específicos
+*.hprof
+captures/
