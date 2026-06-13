@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TP6_GRUPO_2</string>
+    <string-array name="tipo_contacto_opciones">
+        <item>Casa</item>
+        <item>Trabajo</item>
+        <item>Móvil</item>
+    </string-array>
 </resources>
