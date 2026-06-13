@@ -111,6 +111,12 @@
             android:hint="DD/MM/AAAA"
             android:inputType="date" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnTest"
+            android:text="TEST BUTON" />
 
 
     </LinearLayout>

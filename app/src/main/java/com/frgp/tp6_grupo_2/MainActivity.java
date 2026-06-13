@@ -3,6 +3,7 @@ package com.frgp.tp6_grupo_2;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,9 +78,15 @@ public class MainActivity extends AppCompatActivity {
         if (nombre.isEmpty()) {
             etNombre.setError("El nombre es obligatorio");
             esValido = false;
+        } else if(!nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")){
+            etNombre.setError("El nombre solo puede contener letras.");
+            esValido = false;
         }
         if (apellido.isEmpty()) {
             etApellido.setError("El apellido es obligatorio");
+            esValido = false;
+        } else if(!apellido.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")){
+            etApellido.setError("El apellido solo puede contener letras.");
             esValido = false;
         }
         if (direccion.isEmpty()) {
@@ -86,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (telefono.isEmpty()) {
             etTelefono.setError("El teléfono es obligatorio");
+            esValido = false;
+        } else if (!telefono.matches("^[0-9]+-?[0-9]*$")) {
+            etTelefono.setError("Solo se permiten números y 1 guión válido");
             esValido = false;
         }
         if (email.isEmpty()) {
@@ -98,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
         if (fecha.isEmpty()) {
             etFechaNacimiento.setError("La fecha es obligatoria");
             esValido = false;
+        } else if (!fecha.matches("^\\d{2}/\\d{2}/\\d{4}$")){
+            etFechaNacimiento.setError("Debe utilizar el formato DD/MM/AAAA");
+            esValido = false;
         }
 
         return esValido;
@@ -107,5 +122,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
         return true;
+    }
+
+    public void btnTest(View view) {
+        validarFormulario();
     }
 }
