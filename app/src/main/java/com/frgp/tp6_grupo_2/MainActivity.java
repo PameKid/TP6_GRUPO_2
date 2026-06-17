@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*extraje los controles a attributos privados para poder reutilizarlos mejor. Atte. Kim!!*/
     private EditText etNombre, etApellido, etDireccion, etTelefono, etEmail, etFechaNacimiento;
+    private Button btnContinuar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,23 @@ public class MainActivity extends AppCompatActivity {
         etTelefono = findViewById(R.id.etTelefono);
         etEmail = findViewById(R.id.etEmail);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
+        btnContinuar = findViewById(R.id.btnContinuar);
+        btnContinuar.setOnClickListener(v -> {
+            if (validarFormulario()){
+               Intent intent = new Intent(MainActivity.this, MasDatosContactoActivity.class);
 
-        // aqui falta el botón para guardar!!!
+                intent.putExtra("nombre", etNombre.getText().toString().trim());
+                intent.putExtra("apellido", etApellido.getText().toString().trim());
+                intent.putExtra("direccion", etDireccion.getText().toString().trim());
+                intent.putExtra("telefono", etTelefono.getText().toString().trim());
+                intent.putExtra("email", etEmail.getText().toString().trim());
+                intent.putExtra("fechaNacimiento", etFechaNacimiento.getText().toString().trim());
+
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
@@ -110,8 +127,11 @@ public class MainActivity extends AppCompatActivity {
         if (fecha.isEmpty()) {
             etFechaNacimiento.setError("La fecha es obligatoria");
             esValido = false;
-        } else if (!fecha.matches("^\\d{2}/\\d{2}/\\d{4}$")){
-            etFechaNacimiento.setError("Debe utilizar el formato DD/MM/AAAA");
+        } //else if (!fecha.matches("^\\d{2}/\\d{2}/\\d{4}$")){
+           // etFechaNacimiento.setError("Debe utilizar el formato DD/MM/AAAA");
+           // esValido = false;
+        else if (!fecha.matches("^\\d{8}$")){
+            etFechaNacimiento.setError("Debe utilizar el formato DDMMAAAA");
             esValido = false;
         }
 
@@ -124,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void btnTest(View view) {
-        validarFormulario();
-    }
+   // public void btnTest(View view) {
+      //  validarFormulario();
+    //}
 }
