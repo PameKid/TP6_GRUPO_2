@@ -1,8 +1,10 @@
 package com.frgp.tp6_grupo_2;
 
 import android.os.Bundle;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MasDatosContactoActivity extends AppCompatActivity {
 
+    private RadioGroup rgNivelEstudios;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,5 +46,16 @@ public class MasDatosContactoActivity extends AppCompatActivity {
                         "Email: " + email + "\n" +
                         "Fecha: " + fecha
         );
+        rgNivelEstudios = findViewById(R.id.rgNivelEstudios);
+    }
+    private boolean validarNivelEstudios() {
+        int idSeleccionado = rgNivelEstudios.getCheckedRadioButtonId();
+
+        if (idSeleccionado == -1) {
+            Toast.makeText(this, "Debe seleccionar un nivel de estudios", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }

@@ -17,4 +17,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <RadioGroup
+        android:id="@+id/rgNivelEstudios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvDatosRecibidos"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbPrimarioIncompleto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Primario incompleto" />
+
+        <RadioButton
+            android:id="@+id/rbPrimarioCompleto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Primario completo" />
+
+        <RadioButton
+            android:id="@+id/rbSecundarioIncompleto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secundario incompleto" />
+
+        <RadioButton
+            android:id="@+id/rbSecundarioCompleto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secundario completo" />
+
+        <RadioButton
+            android:id="@+id/rbOtros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Otros" />
+
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

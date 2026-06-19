@@ -127,11 +127,8 @@ public class MainActivity extends AppCompatActivity {
         if (fecha.isEmpty()) {
             etFechaNacimiento.setError("La fecha es obligatoria");
             esValido = false;
-        } //else if (!fecha.matches("^\\d{2}/\\d{2}/\\d{4}$")){
-           // etFechaNacimiento.setError("Debe utilizar el formato DD/MM/AAAA");
-           // esValido = false;
-        else if (!fecha.matches("^\\d{8}$")){
-            etFechaNacimiento.setError("Debe utilizar el formato DDMMAAAA");
+        } else if (!fecha.matches("^\\d{2}/\\d{2}/\\d{4}$")) {
+            etFechaNacimiento.setError("Debe utilizar el formato DD/MM/AAAA");
             esValido = false;
         }
 
