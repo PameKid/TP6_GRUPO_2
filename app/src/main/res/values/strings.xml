@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">TP6_GRUPO_2</string>
+    <string name="formulario_de_contacto">FORMULARIO DE CONTACTO</string>
+    <string name="completar_datos_contacto">A continuación, por favor se pide completar más datos personales.</string>
+    <string name="nivel_de_estudios">NIVEL DE ESTUDIOS ALCANZADOS</string>
+    <string name="primario_incompleto">Primario incompleto</string>
+    <string name="primario_completo">Primario completo</string>
+    <string name="secundario_incompleto">Secundario incompleto</string>
+    <string name="secundario_completo">Secundario completo</string>
+    <string name="otros">Otros</string>
+    <string name="intereses">INTERESES</string>
+    <string name="deporte">Deporte</string>
+    <string name="musica">Música</string>
+    <string name="arte">Arte</string>
+    <string name="tecnologia">Tecnología</string>
     <string-array name="tipo_contacto_opciones">
         <item>Casa</item>
         <item>Trabajo</item>
