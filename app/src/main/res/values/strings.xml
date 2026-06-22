@@ -18,4 +18,6 @@
         <item>Trabajo</item>
         <item>Móvil</item>
     </string-array>
+    <string name="label_recibir_informacion">DESEA RECIBIR INFORMACION?</string>
+    <string name="btn_guardar">GUARDAR</string>
 </resources>
