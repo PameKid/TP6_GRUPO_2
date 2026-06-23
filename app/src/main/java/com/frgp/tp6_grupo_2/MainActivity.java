@@ -19,11 +19,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.regex.Pattern;
 
+import OpenHelper.OpenHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     /*extraje los controles a attributos privados para poder reutilizarlos mejor. Atte. Kim!!*/
     private EditText etNombre, etApellido, etDireccion, etTelefono, etEmail, etFechaNacimiento;
     private Button btnContinuar;
+    private OpenHelper bd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
 
         inicializarControles();
         configurarSpinners();
+
+        // instanciar clase de base de datos
+        bd = new OpenHelper(this,"BD_Contactos",null,1);
+        // inicializar conexión a base de datos para validar funcionalidad
+        try {
+            bd.abrir();
+            Toast.makeText(this, "Base de datos inicializada correctamente", Toast.LENGTH_SHORT).show();
+            bd.cerrar();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error al inicializar la base de datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     private void inicializarControles() {
