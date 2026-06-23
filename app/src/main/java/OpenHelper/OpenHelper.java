@@ -23,6 +23,12 @@ public class OpenHelper extends SQLiteOpenHelper {
     private static String ContactoNombre = "nombre";
     private static String ContactoApellido = "apellido";
     private static String ContactoEmail = "email";
+    private static final String ContactoDireccion = "direccion";
+    private static final String ContactoTelefono = "telefono";
+    private static final String ContactoFechaNacimiento = "fecha_nacimiento";
+    private static final String ContactoNivelEstudios = "nivel_estudios";
+    private static final String ContactoIntereses = "intereses";
+    private static final String ContactoRecibirInformacion = "recibir_informacion";
 
     public OpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
