@@ -15,6 +15,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.RadioButton;
+import OpenHelper.OpenHelper;
 
 public class MasDatosContactoActivity extends AppCompatActivity {
 
@@ -78,9 +82,67 @@ public class MasDatosContactoActivity extends AppCompatActivity {
 
                 boolean aceptaInformacion = swInformacion.isChecked();
 
-                // =========================================================
-                // TODO: ACÁ VA EL TICKET TP 6.10 (SQLite INSERT)
-                // =========================================================
+                RadioButton rbSeleccionado = findViewById(rgNivelEstudios.getCheckedRadioButtonId());
+                String nivelEstudios = rbSeleccionado.getText().toString();
+
+                String intereses = "";
+
+                if (cbDeporte.isChecked()) {
+                    intereses += "Deporte ";
+                }
+
+                if (cbMusica.isChecked()) {
+                    intereses += "Música ";
+                }
+
+                if (cbArte.isChecked()) {
+                    intereses += "Arte ";
+                }
+
+                if (cbTecnologia.isChecked()) {
+                    intereses += "Tecnología ";
+                }
+
+
+                OpenHelper helper = new OpenHelper(
+                        MasDatosContactoActivity.this,
+                        "contactos.db",
+                        null,
+                        1
+                );
+
+                SQLiteDatabase db = helper.getWritableDatabase();
+
+                ContentValues valores = new ContentValues();
+
+                valores.put("nombre", nombreFinal);
+                valores.put("apellido", apellidoFinal);
+                valores.put("direccion", direccionFinal);
+                valores.put("telefono", telefonoFinal);
+                valores.put("email", emailFinal);
+                valores.put("fecha_nacimiento", fechaFinal);
+                valores.put("nivel_estudios", nivelEstudios);
+                valores.put("intereses", intereses.trim());
+                valores.put("recibir_informacion", aceptaInformacion ? 1 : 0);
+
+                long resultado = db.insert("contactos", null, valores);
+
+                if (resultado != -1) {
+                    Toast.makeText(
+                            MasDatosContactoActivity.this,
+                            "Contacto guardado correctamente",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                } else {
+                    Toast.makeText(
+                            MasDatosContactoActivity.this,
+                            "Error al guardar el contacto",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+
+                db.close();
+
             }
         });
     }
