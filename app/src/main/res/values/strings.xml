@@ -20,4 +20,6 @@
     </string-array>
     <string name="label_recibir_informacion">DESEA RECIBIR INFORMACION?</string>
     <string name="btn_guardar">GUARDAR</string>
+    <string name="titulo_listado_contactos">FORMULARIO LISTADO DE CONTACTOS</string>
+    <string name="placeholder_contacto">Nombre Apellido - email@ejemplo.com</string>
 </resources>
