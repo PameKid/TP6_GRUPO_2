@@ -15,7 +15,7 @@ public class Contacto {
 
 
     public String getDireccion() {
-        return direccion;
+        return direccion != null ? direccion : "";
     }
 
     public void setDireccion(String direccion) {
@@ -23,7 +23,7 @@ public class Contacto {
     }
 
     public String getNombre() {
-        return nombre;
+        return nombre != null ? nombre : "";
     }
 
     public void setNombre(String nombre) {
@@ -31,7 +31,7 @@ public class Contacto {
     }
 
     public String getApellido() {
-        return apellido;
+        return apellido != null ? apellido : "";
     }
 
     public void setApellido(String apellido) {
@@ -39,7 +39,7 @@ public class Contacto {
     }
 
     public String getTelefono() {
-        return telefono;
+        return telefono != null ? telefono : "";
     }
 
     public void setTelefono(String telefono) {
@@ -47,7 +47,7 @@ public class Contacto {
     }
 
     public String getEmail() {
-        return email;
+        return email != null ? email : "";
     }
 
     public void setEmail(String email) {
@@ -55,7 +55,7 @@ public class Contacto {
     }
 
     public String getNivelEstudios() {
-        return nivelEstudios;
+        return nivelEstudios != null ? nivelEstudios : "";
     }
 
     public void setNivelEstudios(String nivelEstudios) {
@@ -63,7 +63,7 @@ public class Contacto {
     }
 
     public String getIntereses() {
-        return intereses;
+        return intereses != null ? intereses : "";
     }
 
     public void setIntereses(String intereses) {
@@ -78,7 +78,6 @@ public class Contacto {
         this.recibirInformacion = recibirInformacion;
     }
 
-
     public int getId() {
         return id;
     }
@@ -86,9 +85,11 @@ public class Contacto {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getFechaNacimiento() {
-        return fechaNacimiento;
+        return fechaNacimiento != null ? fechaNacimiento : "";
     }
+
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }

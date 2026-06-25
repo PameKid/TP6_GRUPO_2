@@ -1,5 +1,6 @@
 package com.frgp.tp6_grupo_2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -106,7 +107,7 @@ public class MasDatosContactoActivity extends AppCompatActivity {
 
                 OpenHelper helper = new OpenHelper(
                         MasDatosContactoActivity.this,
-                        "contactos.db",
+                        "BD_Contactos",
                         null,
                         1
                 );
@@ -126,13 +127,16 @@ public class MasDatosContactoActivity extends AppCompatActivity {
                 valores.put("recibir_informacion", aceptaInformacion ? 1 : 0);
 
                 long resultado = db.insert("contactos", null, valores);
-
+                db.close();
                 if (resultado != -1) {
                     Toast.makeText(
                             MasDatosContactoActivity.this,
                             "Contacto guardado correctamente",
                             Toast.LENGTH_SHORT
                     ).show();
+                    Intent intent = new Intent(MasDatosContactoActivity.this,ListadoContactosActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(
                             MasDatosContactoActivity.this,
@@ -140,9 +144,6 @@ public class MasDatosContactoActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT
                     ).show();
                 }
-
-                db.close();
-
             }
         });
     }

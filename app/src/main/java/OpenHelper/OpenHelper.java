@@ -61,10 +61,10 @@ public class OpenHelper extends SQLiteOpenHelper {
     }
 
     public List<Contacto> obtenerContactos(){
-        List<Contacto> listaContactos = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
+            List<Contacto> listaContactos = new ArrayList<>();
+            SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + ContactosTable, null);
+            Cursor cursor = db.rawQuery("SELECT * FROM " + ContactosTable, null);
 
         if (cursor.moveToFirst()) {
             do {
