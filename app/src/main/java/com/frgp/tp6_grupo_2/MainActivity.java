@@ -1,15 +1,14 @@
 package com.frgp.tp6_grupo_2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.Menu;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.content.Intent;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,14 +16,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.regex.Pattern;
-
 import OpenHelper.OpenHelper;
 
 public class MainActivity extends AppCompatActivity {
 
     /*extraje los controles a attributos privados para poder reutilizarlos mejor. Atte. Kim!!*/
     private EditText etNombre, etApellido, etDireccion, etTelefono, etEmail, etFechaNacimiento;
+    private Spinner spEmail, spTelefono;
     private Button btnContinuar;
     private OpenHelper bd;
 
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         configurarSpinners();
 
         // instanciar clase de base de datos
-        bd = new OpenHelper(this,"BD_Contactos",null,1);
+        bd = new OpenHelper(this);
         // inicializar conexión a base de datos para validar funcionalidad
         try {
             bd.abrir();
@@ -62,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
         etTelefono = findViewById(R.id.etTelefono);
         etEmail = findViewById(R.id.etEmail);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
+        spTelefono = findViewById(R.id.spTipoTelefono);
+        spEmail = findViewById(R.id.spTipoEmail);
         btnContinuar = findViewById(R.id.btnContinuar);
         btnContinuar.setOnClickListener(v -> {
-            if (validarFormulario()){
-               Intent intent = new Intent(MainActivity.this, MasDatosContactoActivity.class);
+            if (validarFormulario()) {
+                Intent intent = new Intent(MainActivity.this, MasDatosContactoActivity.class);
 
                 intent.putExtra("nombre", etNombre.getText().toString().trim());
                 intent.putExtra("apellido", etApellido.getText().toString().trim());
@@ -73,11 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("telefono", etTelefono.getText().toString().trim());
                 intent.putExtra("email", etEmail.getText().toString().trim());
                 intent.putExtra("fechaNacimiento", etFechaNacimiento.getText().toString().trim());
+                intent.putExtra("tipoTelefono", spTelefono.getSelectedItem().toString());
+                intent.putExtra("tipoEmail", spEmail.getSelectedItem().toString());
 
                 startActivity(intent);
             }
         });
-
 
 
     }
@@ -109,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
         if (nombre.isEmpty()) {
             etNombre.setError("El nombre es obligatorio");
             esValido = false;
-        } else if(!nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")){
+        } else if (!nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")) {
             etNombre.setError("El nombre solo puede contener letras.");
             esValido = false;
         }
         if (apellido.isEmpty()) {
             etApellido.setError("El apellido es obligatorio");
             esValido = false;
-        } else if(!apellido.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")){
+        } else if (!apellido.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")) {
             etApellido.setError("El apellido solo puede contener letras.");
             esValido = false;
         }
@@ -155,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-   // public void btnTest(View view) {
-      //  validarFormulario();
+    // public void btnTest(View view) {
+    //  validarFormulario();
     //}
 }

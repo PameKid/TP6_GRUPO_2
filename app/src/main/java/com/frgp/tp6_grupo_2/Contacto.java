@@ -12,6 +12,8 @@ public class Contacto {
     private String nivelEstudios;
     private String intereses;
     private int recibirInformacion;
+    private String tipoTelefono;
+    private String tipoEmail;
 
 
     public String getDireccion() {
@@ -94,11 +96,29 @@ public class Contacto {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getTipoTelefono() {
+        return tipoTelefono;
+    }
+
+    public void setTipoTelefono(String tipoTelefono) {
+        this.tipoTelefono = tipoTelefono;
+    }
+
+    public String getTipoEmail() {
+        return tipoEmail;
+    }
+
+    public void setTipoEmail(String tipoEmail) {
+        this.tipoEmail = tipoEmail;
+    }
+
     public Contacto(){
     }
     public Contacto(int id, String nombre, String apellido, String direccion,
                     String telefono, String email, String fechaNacimiento,
-                    String nivelEstudios, String intereses, int recibirInformacion) {
+                    String nivelEstudios, String intereses,
+                    String tipoTelefono, String tipoEmail,
+                    int recibirInformacion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -108,6 +128,8 @@ public class Contacto {
         this.fechaNacimiento = fechaNacimiento;
         this.nivelEstudios = nivelEstudios;
         this.intereses = intereses;
+        this.tipoTelefono = tipoTelefono;
+        this.tipoEmail = tipoEmail;
         this.recibirInformacion = recibirInformacion;
     }
 

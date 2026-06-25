@@ -1,12 +1,14 @@
 package com.frgp.tp6_grupo_2;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,9 +18,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-import android.widget.RadioButton;
 import OpenHelper.OpenHelper;
 
 public class MasDatosContactoActivity extends AppCompatActivity {
@@ -45,8 +44,6 @@ public class MasDatosContactoActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextView tvDatosRecibidos = findViewById(R.id.tvDatosRecibidos);
-
         // Datos que vienen de la primera pantalla
         String nombre = getIntent().getStringExtra("nombre");
         String apellido = getIntent().getStringExtra("apellido");
@@ -54,6 +51,8 @@ public class MasDatosContactoActivity extends AppCompatActivity {
         String telefono = getIntent().getStringExtra("telefono");
         String email = getIntent().getStringExtra("email");
         String fecha = getIntent().getStringExtra("fechaNacimiento");
+        String tipoTelefono = getIntent().getStringExtra("tipoTelefono");
+        String tipoEmail = getIntent().getStringExtra("tipoEmail");
 
         rgNivelEstudios = findViewById(R.id.rgNivelEstudios);
 
@@ -105,26 +104,23 @@ public class MasDatosContactoActivity extends AppCompatActivity {
                 }
 
 
-                OpenHelper helper = new OpenHelper(
-                        MasDatosContactoActivity.this,
-                        "BD_Contactos",
-                        null,
-                        1
-                );
+                OpenHelper helper = new OpenHelper(MasDatosContactoActivity.this);
 
                 SQLiteDatabase db = helper.getWritableDatabase();
 
                 ContentValues valores = new ContentValues();
 
-                valores.put("nombre", nombreFinal);
-                valores.put("apellido", apellidoFinal);
-                valores.put("direccion", direccionFinal);
-                valores.put("telefono", telefonoFinal);
-                valores.put("email", emailFinal);
-                valores.put("fecha_nacimiento", fechaFinal);
-                valores.put("nivel_estudios", nivelEstudios);
-                valores.put("intereses", intereses.trim());
-                valores.put("recibir_informacion", aceptaInformacion ? 1 : 0);
+                valores.put(OpenHelper.COL_NOMBRE, nombreFinal);
+                valores.put(OpenHelper.COL_APELLIDO, apellidoFinal);
+                valores.put(OpenHelper.COL_DIRECCION, direccionFinal);
+                valores.put(OpenHelper.COL_TELEFONO, telefonoFinal);
+                valores.put(OpenHelper.COL_EMAIL, emailFinal);
+                valores.put(OpenHelper.COL_FECHA_NACIMIENTO, fechaFinal);
+                valores.put(OpenHelper.COL_NIVEL_ESTUDIOS, nivelEstudios);
+                valores.put(OpenHelper.COL_INTERESES, intereses.trim());
+                valores.put(OpenHelper.COL_RECIBIR_INFORMACION, aceptaInformacion ? 1 : 0);
+                valores.put(OpenHelper.COL_TIPO_TELEFONO, tipoTelefono);
+                valores.put(OpenHelper.COL_TIPO_EMAIL, tipoEmail);
 
                 long resultado = db.insert("contactos", null, valores);
                 db.close();
@@ -134,7 +130,7 @@ public class MasDatosContactoActivity extends AppCompatActivity {
                             "Contacto guardado correctamente",
                             Toast.LENGTH_SHORT
                     ).show();
-                    Intent intent = new Intent(MasDatosContactoActivity.this,ListadoContactosActivity.class);
+                    Intent intent = new Intent(MasDatosContactoActivity.this, ListadoContactosActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
