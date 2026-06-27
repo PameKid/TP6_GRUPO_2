@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/detalle_contacto"
+            android:textColor="?attr/colorPrimary"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -22,13 +23,13 @@
             android:layout_height="2dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="20dp"
-            android:background="#000000" />
+            android:background="?attr/colorPrimary" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nombre_completo"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -37,14 +38,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fecha_nacimiento"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -53,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <View
@@ -61,13 +62,13 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:background="#EEEEEE" />
+            android:background="?attr/colorOutlineVariant" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/telefono"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -76,14 +77,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/correo_electronico"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -92,14 +93,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/direccion"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -108,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <View
@@ -116,13 +117,13 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:background="#EEEEEE" />
+            android:background="?attr/colorOutlineVariant" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nivel_estudios"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -131,14 +132,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/intereses"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -148,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:lineSpacingExtra="4dp"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
         <View
@@ -156,13 +157,13 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:background="#EEEEEE" />
+            android:background="?attr/colorOutlineVariant" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/suscripcion_informacion"
-            android:textColor="#757575"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -170,7 +171,7 @@
             android:id="@+id/tvDialogSuscripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#212121"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="16sp" />
 
     </LinearLayout>

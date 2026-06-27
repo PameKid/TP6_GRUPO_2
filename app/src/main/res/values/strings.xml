@@ -30,4 +30,7 @@
     <string name="direccion">DIRECCIÓN</string>
     <string name="nivel_estudios">NIVEL DE ESTUDIOS</string>
     <string name="suscripcion_informacion">SUSCRIPCIÓN A INFORMACIÓN</string>
+    <string name="subtitulo_formulario">Este es un formulario destinado al registro de personas, sus datos personales e intereses.</string>
+    <string name="nombre">NOMBRE</string>
+    <string name="apellido">APELLIDO</string>
 </resources>

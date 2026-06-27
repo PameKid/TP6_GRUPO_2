@@ -3,22 +3,19 @@ package com.frgp.tp6_grupo_2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import OpenHelper.OpenHelper;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     /*extraje los controles a attributos privados para poder reutilizarlos mejor. Atte. Kim!!*/
     private EditText etNombre, etApellido, etDireccion, etTelefono, etEmail, etFechaNacimiento;
@@ -42,14 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         // instanciar clase de base de datos
         bd = new OpenHelper(this);
-        // inicializar conexión a base de datos para validar funcionalidad
-        try {
-            bd.abrir();
-            Toast.makeText(this, "Base de datos inicializada correctamente", Toast.LENGTH_SHORT).show();
-            bd.cerrar();
-        } catch (Exception e) {
-            Toast.makeText(this, "Error al inicializar la base de datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
     }
 
     private void inicializarControles() {
@@ -79,18 +68,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void configurarSpinners() {
-        Spinner spTelefono = findViewById(R.id.spTipoTelefono);
-        Spinner spEmail = findViewById(R.id.spTipoEmail);
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.tipo_contacto_opciones, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         spTelefono.setAdapter(adapter);
         spEmail.setAdapter(adapter);
     }
@@ -149,14 +132,4 @@ public class MainActivity extends AppCompatActivity {
 
         return esValido;
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
-        return true;
-    }
-
-    // public void btnTest(View view) {
-    //  validarFormulario();
-    //}
 }
