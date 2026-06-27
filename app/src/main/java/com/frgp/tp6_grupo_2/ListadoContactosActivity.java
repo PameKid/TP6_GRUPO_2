@@ -14,6 +14,10 @@ import java.util.List;
 
 import OpenHelper.OpenHelper;
 
+import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuItem;
+
 public class ListadoContactosActivity extends AppCompatActivity {
 
     private ListView lvContactos;
@@ -83,5 +87,28 @@ public class ListadoContactosActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "Error al cargar el listado: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_agregar) {
+            Intent intent = new Intent(ListadoContactosActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.nav_listado) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
